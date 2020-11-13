@@ -1,7 +1,7 @@
 ###############################################################################
 # Arm (GAS) test
 ###############################################################################
-cmake_minimum_required(VERSION 3.14)
+cmake_minimum_required(VERSION 3.6)
 
 macro(simd_fail message)
   if(REQUIRE_SIMD)
