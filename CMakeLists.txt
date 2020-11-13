@@ -45,7 +45,7 @@ endif()
 # separate_arguments(CMAKE_ASM_FLAGS_SEP UNIX_COMMAND "${CMAKE_ASM_FLAGS}")
 
 # print the flags used by test commands, pass from github actions
-message(STATUS "CMAKE_ASM_FLAGS_SEP=${CMAKE_ASM_FLAGS_SEP}"
+message(STATUS "CMAKE_ASM_FLAGS_SEP=${CMAKE_ASM_FLAGS_SEP}")
 message(STATUS "Executing command: ${CMAKE_ASM_COMPILER} ${CMAKE_ASM_FLAGS_SEP}
     -x assembler-with-cpp -c ${CMAKE_CURRENT_BINARY_DIR}/gastest.S")
 execute_process(COMMAND ${CMAKE_ASM_COMPILER} ${CMAKE_ASM_FLAGS_SEP}
