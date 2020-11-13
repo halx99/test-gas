@@ -17,11 +17,11 @@ if(CPU_TYPE STREQUAL "arm64" OR CPU_TYPE STREQUAL "arm")
 
 enable_language(ASM)
 
-set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} ${CMAKE_ASM_FLAGS}")
-
-string(TOUPPER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE_UC)
-set(EFFECTIVE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ${CMAKE_ASM_FLAGS_${CMAKE_BUILD_TYPE_UC}}")
-message(STATUS "CMAKE_ASM_FLAGS = ${EFFECTIVE_ASM_FLAGS}")
+# set(CMAKE_ASM_FLAGS "${CMAKE_C_FLAGS} ${CMAKE_ASM_FLAGS}")
+# 
+# string(TOUPPER ${CMAKE_BUILD_TYPE} CMAKE_BUILD_TYPE_UC)
+# set(EFFECTIVE_ASM_FLAGS "${CMAKE_ASM_FLAGS} ${CMAKE_ASM_FLAGS_${CMAKE_BUILD_TYPE_UC}}")
+# message(STATUS "CMAKE_ASM_FLAGS = ${EFFECTIVE_ASM_FLAGS}")
 
 # Test whether we need gas-preprocessor.pl
 if(CPU_TYPE STREQUAL "arm")
@@ -42,8 +42,10 @@ else()
     .unreq MYVAR")
 endif()
 
-separate_arguments(CMAKE_ASM_FLAGS_SEP UNIX_COMMAND "${CMAKE_ASM_FLAGS}")
+# separate_arguments(CMAKE_ASM_FLAGS_SEP UNIX_COMMAND "${CMAKE_ASM_FLAGS}")
 
+# print the flags used by test commands, pass from github actions
+message(STATUS "CMAKE_ASM_FLAGS_SEP=${CMAKE_ASM_FLAGS_SEP}"
 message(STATUS "Executing command: ${CMAKE_ASM_COMPILER} ${CMAKE_ASM_FLAGS_SEP}
     -x assembler-with-cpp -c ${CMAKE_CURRENT_BINARY_DIR}/gastest.S")
 execute_process(COMMAND ${CMAKE_ASM_COMPILER} ${CMAKE_ASM_FLAGS_SEP}
