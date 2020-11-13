@@ -2,6 +2,8 @@
 # Arm (GAS)
 ###############################################################################
 
+project(test)
+
 if(CPU_TYPE STREQUAL "arm64" OR CPU_TYPE STREQUAL "arm")
 
 enable_language(ASM)
@@ -40,7 +42,7 @@ execute_process(COMMAND ${CMAKE_ASM_COMPILER} ${CMAKE_ASM_FLAGS_SEP}
   RESULT_VARIABLE RESULT OUTPUT_VARIABLE OUTPUT ERROR_VARIABLE ERROR)
 if(NOT RESULT EQUAL 0)
   message(STATUS "GAS appears to be broken.  Trying gas-preprocessor.pl ...")
-  mesaage(STATUS "Executing command: gas-preprocessor.pl ${CMAKE_ASM_COMPILER}
+  message(STATUS "Executing command: gas-preprocessor.pl ${CMAKE_ASM_COMPILER}
       ${CMAKE_ASM_FLAGS_SEP} -x assembler-with-cpp -c
       ${CMAKE_CURRENT_BINARY_DIR}/gastest.S")
   execute_process(COMMAND gas-preprocessor.pl ${CMAKE_ASM_COMPILER}
@@ -60,3 +62,7 @@ else()
 endif()
 
 file(REMOVE ${CMAKE_CURRENT_BINARY_DIR}/gastest.S)
+
+message(STATUS "SIMD extensions: ${CPU_TYPE}")
+
+add_library(test STATIC empty.cpp)
