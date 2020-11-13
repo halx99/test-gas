@@ -78,4 +78,4 @@ file(REMOVE ${CMAKE_CURRENT_BINARY_DIR}/gastest.S)
 
 message(STATUS "SIMD extensions: ${CPU_TYPE}")
 
-add_library(test STATIC empty.cpp)
+add_library(test STATIC empty.cpp ${CPU_TYPE}/jsimd_neon.S)
