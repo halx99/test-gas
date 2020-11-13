@@ -21,7 +21,12 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-
+      # Configure
+      - name: Create Build Environment
+        run: |
+          which cmake
+          cmake --version
+          
       # Configure
       - name: Configure
         run: cmake -B build -DCMAKE_TOOLCHAIN_FILE=ios.mini.cmake -GXcode -DCMAKE_OSX_ARCHITECTURES=armv7 -DCPU_TYPE=arm "-DCMAKE_ASM_FLAGS_SEP=-mfloat-abi=softfp;-arch;armv7;-miphoneos-version-min=6.0;-fembed-bitcode;-Wall"
