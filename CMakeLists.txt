@@ -1,7 +1,16 @@
 ###############################################################################
-# Arm (GAS)
+# Arm (GAS) test
 ###############################################################################
 cmake_minimum_required(VERSION 3.14)
+
+macro(simd_fail message)
+  if(REQUIRE_SIMD)
+    message(FATAL_ERROR "${message}.")
+  else()
+    message(WARNING "${message}.  Performance will suffer.")
+    set(WITH_SIMD 0 PARENT_SCOPE)
+  endif()
+endmacro()
 
 project(test)
 
