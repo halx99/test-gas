@@ -61,6 +61,8 @@ else()
   message(STATUS "GAS is working properly")
 endif()
 
+endif()
+
 file(REMOVE ${CMAKE_CURRENT_BINARY_DIR}/gastest.S)
 
 message(STATUS "SIMD extensions: ${CPU_TYPE}")
