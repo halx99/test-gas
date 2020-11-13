@@ -8,7 +8,6 @@ macro(simd_fail message)
     message(FATAL_ERROR "${message}.")
   else()
     message(WARNING "${message}.  Performance will suffer.")
-    set(WITH_SIMD 0 PARENT_SCOPE)
   endif()
 endmacro()
 
