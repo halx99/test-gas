@@ -24,7 +24,7 @@ jobs:
 
       # Configure
       - name: Configure
-        run: cmake -B build -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_ARCHITECTURES=armv7 -DCPU_TYPE=armv7
+        run: cmake -B build -DCMAKE_SYSTEM_NAME=iOS -DCMAKE_OSX_ARCHITECTURES=armv7 -DCPU_TYPE=arm
 
       # Build
       - name: Build
