@@ -11,7 +11,6 @@ on:
       - arm/**/*
       - .github/workflows/ios-armv7.yml
   pull_request:
-    branches: [ main ]
     paths:
       - arm/**/*
       - .github/workflows/ios-armv7.yml
