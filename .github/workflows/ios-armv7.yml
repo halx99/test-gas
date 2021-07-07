@@ -8,13 +8,13 @@ on:
   push:
     branches: [ main ]
     paths:
-      - arm64/**/*
-      - .github/workflows/ios-arm64.yml
+      - arm/**/*
+      - .github/workflows/ios-armv7.yml
   pull_request:
     branches: [ main ]
     paths:
-      - arm64/**/*
-      - .github/workflows/ios-arm64.yml
+      - arm/**/*
+      - .github/workflows/ios-armv7.yml
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
